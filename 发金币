@@ -1,0 +1,26 @@
+#include <iostream>
+using namespace std;
+
+int main() {
+    int k;
+    cin >> k;
+    
+    int total = 0;  // 总金币
+    int days = 0;   // 已经过了多少天
+    int cnt = 1;    // 当前阶段：每天发 cnt 个，持续 cnt 天
+    
+    while (days < k) {
+        // 本轮要发几天：最多发 cnt 天，但不能超过剩余天数
+        int need = cnt;
+        if (days + cnt > k) {
+            need = k - days;
+        }
+        
+        total += cnt * need;  // 累加这一阶段的金币
+        days += need;         // 累加天数
+        cnt++;                // 进入下一阶段
+    }
+    
+    cout << total << endl;
+    return 0;
+}
