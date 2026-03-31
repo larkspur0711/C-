@@ -8,7 +8,7 @@ int main() {
     if (n < 0) {
         isNegative = true;
         n = -n;
-    }
+    }//判断输入的数是否是负数，以便最后一步翻转时加符号
     int reversed = 0;
     while (n != 0) {
         int digit = n % 10;
